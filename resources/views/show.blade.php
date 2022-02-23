@@ -35,9 +35,9 @@
   </div>
   <script src="{{asset('js/app.js')}}"></script>
   <!-- <script src="http://localhost:3000/socket.io/socket.io.js"></script> -->
-  <script src="https://shrouded-harbor-81329.herokuapp.com/socket.io/socket.io.js"></script>
+  <script src="//shrouded-harbor-81329.herokuapp.com/socket.io/socket.io.js"></script>
   <script>
-    var socket = io("https://shrouded-harbor-81329.herokuapp.com");
+    var socket = io("//shrouded-harbor-81329.herokuapp.com");
     // var socket = io("http://localhost:3000");
     var id = "{{$id}}";
   </script>
