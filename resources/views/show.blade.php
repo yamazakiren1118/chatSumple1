@@ -37,7 +37,7 @@
   <!-- <script src="http://localhost:3000/socket.io/socket.io.js"></script> -->
   <script src="//shrouded-harbor-81329.herokuapp.com/socket.io/socket.io.js"></script>
   <script>
-    var socket = io("//shrouded-harbor-81329.herokuapp.com");
+    var socket = io.connect("//shrouded-harbor-81329.herokuapp.com",{secure:true});
     // var socket = io("http://localhost:3000");
     var id = "{{$id}}";
   </script>
