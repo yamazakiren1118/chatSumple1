@@ -37,7 +37,7 @@
   <!-- <script src="http://localhost:3000/socket.io/socket.io.js"></script> -->
   <script src="https://polar-retreat-24639.herokuapp.com/socket.io/socket.io.js"></script>
   <script>
-    var socket = io("https://polar-retreat-24639.herokuapp.com");
+    var socket = io("https://polar-retreat-24639.herokuapp.com,{transports:['websocket']}");
     // var socket = io("http://localhost:3000");
     var id = "{{$id}}";
   </script>
