@@ -18,11 +18,13 @@ class RoomController extends Controller
     public function show($id)
     {
         $room = Room::find($id);
+        $url = env('SOCKET_URL', 'http://localhost:3000');
+  
         if(!$room){
             abort(404);
         }
         $message = $room->messages;
-        return view('show', ['id'=>$id, 'message'=>$message]);
+        return view('show', ['id'=>$id, 'message'=>$message, 'url'=>$url]);
     }
 
     public function create(Request $request)
