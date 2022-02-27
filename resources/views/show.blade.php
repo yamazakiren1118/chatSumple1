@@ -37,7 +37,7 @@
   <script src="{{$url . '/socket.io/socket.io.js'}}"></script>
   <!-- <script src="https://polar-retreat-24639.herokuapp.com/socket.io/socket.io.js"></script> -->
   <script>
-    var socket = io("{{$url}}",{transports:['websocket']});
+    var socket = io("{{$url}}");
     // var socket = io("https://polar-retreat-24639.herokuapp.com",{transports:['websocket']});
     var id = "{{$id}}";
   </script>
