@@ -37,6 +37,9 @@
   <script src="{{$url . '/socket.io/socket.io.js'}}"></script>
   <!-- <script src="https://polar-retreat-24639.herokuapp.com/socket.io/socket.io.js"></script> -->
   <script>
+    // var option = {
+    //   reconnection: true
+    // }
     var socket = io("{{$url}}");
     // var socket = io("https://polar-retreat-24639.herokuapp.com",{transports:['websocket']});
     var id = "{{$id}}";
@@ -59,6 +62,13 @@
   <script>
     socket.on('chat', function(data){
       $("#messages").append(`<li class='list-group-item'>${data}</li>`);
+    });
+    socket.on('connect',function(){
+      console.log('OK connection');
+      socket.emit('room', id);
+    });
+    socket.on('disconnect',function(){
+      console.log('DisConnect');
     });
   </script>
 </body>
