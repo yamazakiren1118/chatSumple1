@@ -15,7 +15,7 @@ class Https
      */
     public function handle($request, Closure $next)
     {
-        if(env("APP_ENV") == "production"){
+        if(!($request->server->get("HTTP_X_FORWARDED_PROTO")) && env("APP_ENV") == "production"){
             return redirect()->secure($request->getRequestUri());
         }
         return $next($request);

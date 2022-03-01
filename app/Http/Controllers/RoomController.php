@@ -11,6 +11,7 @@ class RoomController extends Controller
     //
     public function index(Request $request)
     {
+        // dd(!($request->server->get("HTTP_X_FORWARDED_PROTO")));
         $room = Room::all();
         return view('main', ['room'=>$room]);
     }
