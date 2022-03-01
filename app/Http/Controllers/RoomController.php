@@ -9,7 +9,7 @@ use App\Message;
 class RoomController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         $room = Room::all();
         return view('main', ['room'=>$room]);
