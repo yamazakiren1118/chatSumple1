@@ -15,8 +15,7 @@ class Https
      */
     public function handle($request, Closure $next)
     {
-        dd($request->server->get("HTTP_X_FORWARDED_PROTO"));
-        if(!($request->server->get("HTTP_X_FORWARDED_PROTO")) && env("APP_ENV") == "production"){
+        if($request->server->get("HTTP_X_FORWARDED_PROTO") != "https" && env("APP_ENV") == "production"){
             echo "middlewere middlewere";
             return redirect()->secure($request->getRequestUri());
         }
