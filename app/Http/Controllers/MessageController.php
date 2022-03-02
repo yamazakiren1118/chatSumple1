@@ -16,6 +16,15 @@ class MessageController extends Controller
         $message->user_id = Auth::id();
         // dd($message);
         $message->save();
-        return redirect()->action('RoomController@show',['id'=>$message->room_id]);
+
+        return response()->json(['id' => $message->id]);
+        // return redirect()->action('RoomController@show',['id'=>$message->room_id]);
+    }
+
+    public function delete(Request $request)
+    {
+        $message = Message::find($request->id);
+        $message->delete();
+        return response()->json(['id' => $request->id]);
     }
 }

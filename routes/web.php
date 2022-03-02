@@ -21,10 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'message'], function(){
     Route::post('create', 'MessageController@create');
+    Route::get('delete', 'MessageController@delete');
 });
 
 Route::group(['prefix' => 'chat'], function(){
     Route::get('/', 'RoomController@index')->middleware('auth');
-    Route::get('{id}', 'RoomController@show')->middleware('auth');
+    Route::delete('delete', 'RoomController@delete');
     Route::post('room', 'RoomController@create');
+    Route::get('{id}', 'RoomController@show')->middleware('auth');
 });

@@ -11,8 +11,7 @@ class RoomController extends Controller
     //
     public function index(Request $request)
     {
-        // dd(!($request->server->get("HTTP_X_FORWARDED_PROTO")));
-        $room = Room::all();
+        $room = Room::orderBy('id', 'desc')->get();
         return view('main', ['room'=>$room]);
     }
 
@@ -37,6 +36,13 @@ class RoomController extends Controller
         $room = $room + ['url' => action('RoomController@show',$room['id'])];
         return response()->json($room);
         // return redirect()->action('RoomController@show', ['id'=>$room->id]);
+    }
+
+    public function delete(Request $request)
+    {
+        $room = Room::find($request->id);
+        $room->delete();
+        return response()->json(['id' => $request->id]);
     }
 }
 
